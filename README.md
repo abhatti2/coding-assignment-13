@@ -1,86 +1,40 @@
-# Getting Started with Create React App
+# UI Component Library with Build Checks
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+This project contains a UI component library built using React. It includes a Husky pre-commit hook that checks code formatting with Prettier, runs ESLint for linting, and executes all tests before allowing any code to be committed.
 
-## Available Scripts
+Additionally, the project is containerized with Docker, and it includes a CI pipeline using GitHub Actions to ensure that the same checks run in the GitHub repository.
 
-In the project directory, you can run:
+## Pre-commit Checks
+The following checks are run before committing:
+- **Prettier**: Ensures code is properly formatted.
+- **ESLint**: Runs linting on the codebase.
+- **Tests**: Runs all unit tests.
 
-### `npm start`
+If any of these checks fail, the commit will be blocked.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## CI/CD Pipeline
+The project includes a GitHub Actions CI pipeline that runs the same checks whenever code is pushed or a pull request is created. This ensures that the codebase maintains its quality across environments.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Docker Setup
+To run the project locally using Docker:
 
-### `npm test`
+1. Build the Docker container:
+   ```
+   docker build -t bhatti_ashbeel_coding_assignment13 .
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Run the container:
+   ```
+   docker run -p 8018:8018 bhatti_ashbeel_coding_assignment13
+   ```
 
-### `npm run build`
+3. Access the app in browser at `http://localhost:8018`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-
-
-# UI Component Library
-
-This is a UI component library built with React and Storybook. The library contains reusable components like buttons, labels, text inputs, tables, dropdowns, and more. This application is configured to run on Docker and can be accessed at `localhost:8083` once the container is up and running.
-
-## Prerequisites
-
-Make sure you have the following installed on your machine:
-
-- [Docker](https://www.docker.com/)
-- [Node.js](https://nodejs.org/en/) (For local development)
-
-## How to Run the Project
-
-### 1. Clone the repository
-
-git clone (https://github.com/abhatti2/WEBD-3012_coding-assignment-12.git)
-cd ui-component-library
-
-### 2. Build and Run the Docker Container
-
-# Build the Docker image:
-docker build -t bhatti_ashbeel_coding_assignment12 .
-
-# Run the Docker container:
-docker run -p 8083:8083 bhatti_ashbeel_coding_assignment12
-
-### 3. Access the Application
-http://localhost:8083
-
-### 5. Run Storybook
+## Commands
+- `npm run lint`: Runs ESLint on the codebase.
+- `npm run format-check`: Runs Prettier check.
+- `npm test`: Runs all unit tests.
 
 # To run Storybook locally and view the component library:
 npm run storybook
-# Storybook will run on http://localhost:6006.
-
-# To build the application for production:
-npm run build
