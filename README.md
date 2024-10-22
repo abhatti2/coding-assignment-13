@@ -36,5 +36,5 @@ To run the project locally using Docker:
 - `npm run format-check`: Runs Prettier check.
 - `npm test`: Runs all unit tests.
 
-### To run Storybook locally and view the component library:
+## To run Storybook locally and view the component library:
 npm run storybook
